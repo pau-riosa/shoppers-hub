@@ -29,22 +29,43 @@ module.exports = (env, options) => ({
           loader: 'babel-loader'
         }
       },
+      { 
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { 
+            loader: 'css-loader', options: { } 
+          },
+          'postcss-loader',
+        ],  
+      },
       {
-        test: /\.scss$/,
+        test: /\.sass$|.scss$/,
         use: [
           MiniCssExtractPlugin.loader, 
+          {loader: 'css-loader', options: {importLoaders: 1}},
           {
-            loader: 'css-loader',
-            options: {}
+            loader: 'postcss-loader', 
+            options: {
+              sourceMap: true, 
+              config: {
+                path: 'postcss.config.js'
+              }
+            }
           },
+          {loader: 'sass-loader?sourceMap'},
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
           {
-            loader: 'sass-loader',
-            options: {}
-          },
-          {
-            loader: 'postcss-loader',
-            options: {}
-          },
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: '../fonts'
+            }
+          }
         ]
       }
     ]

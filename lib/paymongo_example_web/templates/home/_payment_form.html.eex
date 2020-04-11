@@ -1,7 +1,7 @@
 <section class="bg-white py-8">
   <div class="container mx-auto flex items-center flex-row">
     <div class="w-full container mx-auto flex flex-col items-center mt-0 px-2 py-3">
-      <img class="shadow-lg" src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+      <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
     </div>
     <div class="w-full container mx-auto flex flex-col items-center mt-0 px-2 py-3">
       <h1 class="tracking-wide font-bold text-gray-800 text-xl pb-5 ">
@@ -46,7 +46,10 @@
         </div>
         <div class="flex flex-row justify-end">
           <button class="btn btn-gray">Cancel</button> 
-          <button class="btn btn-blue">Pay</button> 
+          <button class="btn btn-blue">
+            <i class="fas fa-shopping-cart"></i>
+            Pay
+          </button> 
         </div>        
       </form>
     </div>

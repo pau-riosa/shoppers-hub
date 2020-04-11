@@ -1,13 +1,11 @@
 /* This file is for your main application css. */
+@import "../scss/brands";
+@import "../scss/regular";
+@import "../scss/solid";
+@import "../scss/fontawesome";
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "./components/nav.scss";
 @import "./components/buttons.scss";
 @import "tailwindcss/utilities";
-
-
-/* @import "./navbar.scss"; 
- @import "./main.scss";
- @import "./main.scss";
-*/
 
