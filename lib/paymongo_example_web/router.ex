@@ -13,8 +13,22 @@ defmodule PaymongoExampleWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :admin do
+    plug(:put_layout, {PaymongoExampleWeb.LayoutView, :app})
+  end
+
+  pipeline :home do
+    plug(:put_layout, {PaymongoExampleWeb.LayoutView, :home})
+  end
+
   scope "/", PaymongoExampleWeb do
-    pipe_through :browser
+    pipe_through [:browser, :home]
+
+    get "/", HomeController, :index
+  end
+
+  scope "/admin", PaymongoExampleWeb do
+    pipe_through [:browser, :admin]
 
     get "/", PageController, :index
   end

@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"/>
     <%= csrf_meta_tag() %>
   </head>
-  <body>
-    <%# <%= render PaymongoExampleWeb.SharedView, "_navbar.html" %1> %>   
+  <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+    <%= render PaymongoExampleWeb.SharedView, "_nav-header.html" %>   
     <main>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= render @view_module, @view_template, assigns %>
     </main>
+    <%= render PaymongoExampleWeb.SharedView, "_home-footer.html" %>   
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
