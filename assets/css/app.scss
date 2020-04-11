@@ -1,0 +1,11 @@
+/* This file is for your main application css. */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "./components/buttons.scss";
+@import "tailwindcss/utilities";
+
+
+@import "./navbar.scss";
+@import "./main.scss";
+
+
