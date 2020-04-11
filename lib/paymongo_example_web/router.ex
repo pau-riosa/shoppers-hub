@@ -25,6 +25,8 @@ defmodule PaymongoExampleWeb.Router do
     pipe_through [:browser, :home]
 
     get "/", HomeController, :index
+    get "/show", HomeController, :show
+    get "/pay", HomeController, :new
   end
 
   scope "/admin", PaymongoExampleWeb do

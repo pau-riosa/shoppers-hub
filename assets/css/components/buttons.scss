@@ -1,3 +1,36 @@
-.btn-indigo {
-  @apply bg-indigo-700 text-white font-bold py-2 px-4 rounded;
+.btn {
+  @apply uppercase font-bold py-2 px-10 rounded;
 }
+
+.btn-blue {
+  @apply bg-blue-500 text-white; 
+}
+
+.btn-blue:hover {
+ @apply bg-blue-800;
+}
+
+.btn-gray {
+  @apply mx-1 text-gray-700; 
+}
+
+.btn-gray:hover {
+  @apply text-white bg-gray-500; 
+}
+
+.btn-quantity {
+  @apply uppercase font-bold text-blue-600 text-lg rounded-full py-2 px-6 bg-blue-200;
+}
+
+.btn-quantity:hover {
+ @apply bg-blue-300;
+}
+
+.btn-quantity-left{
+  @apply rounded-r-none ;
+}
+
+.btn-quantity-right{
+  @apply rounded-l-none;
+}
+
