@@ -14,7 +14,10 @@
           <h3 class="font-bold text-gray-900">Social</h3>
           <ul class="list-reset items-center pt-3">
             <li>
-              <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Add social links</a>
+              <a class="inline-block no-underline hover:text-black hover:underline py-1 text-3xl" href="#"><i class="fab fa-facebook-square"></i></a>
+              <a class="inline-block no-underline hover:text-black hover:underline py-1 text-3xl" href="#"><i class="fab fa-instagram-square"></i></a>
+              <a class="inline-block no-underline hover:text-black hover:underline py-1 text-3xl" href="#"><i class="fab fa-twitter-square"></i></a>
+              <a class="inline-block no-underline hover:text-black hover:underline py-1 text-3xl" href="#"><i class="fab fa-linkedin"></i></a>
             </li>
           </ul>
         </div>
