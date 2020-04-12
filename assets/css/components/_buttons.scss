@@ -2,6 +2,22 @@
   @apply uppercase font-bold py-2 px-10 rounded;
 }
 
+.btn-black {
+  @apply bg-black text-white; 
+}
+
+.btn-black:hover {
+ @apply bg-gray-700;
+}
+
+.btn-green {
+  @apply bg-green-500 text-white; 
+}
+
+.btn-green:hover {
+ @apply bg-green-800;
+}
+
 .btn-blue {
   @apply bg-blue-500 text-white; 
 }
@@ -19,11 +35,11 @@
 }
 
 .btn-quantity {
-  @apply uppercase font-bold text-blue-600 text-lg rounded-full py-2 px-6 bg-blue-200;
+  @apply uppercase font-bold text-white text-lg rounded-full py-2 px-6 bg-blue-500;
 }
 
 .btn-quantity:hover {
- @apply bg-blue-300;
+ @apply bg-blue-800;
 }
 
 .btn-quantity-left{

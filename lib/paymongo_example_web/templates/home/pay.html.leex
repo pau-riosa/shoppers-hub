@@ -1,0 +1,6 @@
+<%= cond do %>
+  <% @payment_type == "ewallet" -> %>
+    <%= render "_ewallet.html", total: @total %>
+  <% true -> %>
+    <%= render "_card.html", total: @total %>
+<% end %>

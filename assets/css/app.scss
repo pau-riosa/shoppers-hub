@@ -8,6 +8,10 @@
 @import "@fortawesome/fontawesome-free/scss/fontawesome";
 /* end fontawesome. */
 
+/* nprogress. */
+@import "../node_modules/nprogress/nprogress.css";
+/* end nprogress. */
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "./components/nav";

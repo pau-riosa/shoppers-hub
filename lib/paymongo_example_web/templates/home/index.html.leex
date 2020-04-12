@@ -61,8 +61,7 @@
         <label for="carousel-3" class="carousel-bullet cursor-pointer block text-4xl text-gray-400 hover:text-gray-900">•</label>
       </li>
     </ol>
-
   </div>
 </div>
-<%= render PaymongoExampleWeb.HomeView, "_products.html" %>
+<%= live_component(@socket, PaymongoExampleWeb.ProductLiveComponent) %>
 

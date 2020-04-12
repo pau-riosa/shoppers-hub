@@ -4,7 +4,7 @@ defmodule PaymongoExampleWeb.Router do
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
-    plug :fetch_flash
+    plug :fetch_live_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -17,23 +17,22 @@ defmodule PaymongoExampleWeb.Router do
     plug(:put_layout, {PaymongoExampleWeb.LayoutView, :app})
   end
 
-  pipeline :home do
-    plug(:put_layout, {PaymongoExampleWeb.LayoutView, :home})
+  pipeline :root do
+    plug(:put_root_layout, {PaymongoExampleWeb.LayoutView, :root})
   end
 
   scope "/", PaymongoExampleWeb do
-    pipe_through [:browser, :home]
+    pipe_through [:browser, :root]
 
-    get "/", HomeController, :index
-    get "/show", HomeController, :show
-    get "/pay", HomeController, :new
+    live "/", HomeLive.Index, as: :home_index
+    live "/:slug/show", HomeLive.Show, as: :home_show
   end
 
-  scope "/admin", PaymongoExampleWeb do
-    pipe_through [:browser, :admin]
+  # scope "/admin", PaymongoExampleWeb do
+  #   pipe_through [:browser, :admin]
 
-    get "/", PageController, :index
-  end
+  #   get "/", PageController, :index
+  # end
 
   # Other scopes may use custom stacks.
   # scope "/api", PaymongoExampleWeb do

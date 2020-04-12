@@ -20,10 +20,10 @@ defmodule PaymongoExampleWeb do
   def controller do
     quote do
       use Phoenix.Controller, namespace: PaymongoExampleWeb
-
       import Plug.Conn
       import PaymongoExampleWeb.Gettext
       alias PaymongoExampleWeb.Router.Helpers, as: Routes
+      import Phoenix.LiveView.Controller
     end
   end
 
@@ -38,10 +38,18 @@ defmodule PaymongoExampleWeb do
 
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
-
+      import Phoenix.LiveView.Helpers
       import PaymongoExampleWeb.ErrorHelpers
       import PaymongoExampleWeb.Gettext
       alias PaymongoExampleWeb.Router.Helpers, as: Routes
+    end
+  end
+
+  def live do
+    quote do
+      import Phoenix.LiveView.Helpers
+      alias PaymongoExampleWeb.Router.Helpers, as: Routes
+      use Phoenix.LiveView, layout: {PaymongoExampleWeb.LayoutView, "live.html"}
     end
   end
 
@@ -50,6 +58,7 @@ defmodule PaymongoExampleWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 
