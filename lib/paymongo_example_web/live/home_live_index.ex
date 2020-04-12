@@ -6,6 +6,12 @@ defmodule PaymongoExampleWeb.HomeLive.Index do
   end
 
   def mount(_params, _payload, socket) do
+    socket =
+      assign(
+        socket,
+        page_title: "Shopper's HUB"
+      )
+
     {:ok, socket}
   end
 end
