@@ -1,7 +1,7 @@
-<div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+<div class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center">
   <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
   <div class="modal-container bg-white w-1/2 md:min-w-xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
-    <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+    <div phx-click="modal-close" class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
       <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
         <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
       </svg>
@@ -12,7 +12,7 @@
       <!--Title-->
       <div class="flex justify-between items-center pb-3">
         <p class="text-2xl font-bold">Awaiting Payment</p>
-        <div class="modal-close cursor-pointer z-50">
+        <div phx-click="modal-close" class="modal-close cursor-pointer z-50">
           <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
             <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
           </svg>
@@ -20,12 +20,15 @@
       </div>
       <!--Body-->
       <div class="container mx-auto flex items-center flex-row">
-        <div class="w-full container mx-auto flex flex-col mt-0 px-2 py-3">
+        <div class="w-full container mx-auto flex flex-col mt-0 px-10">
           <div class="flex flex-row justify-between">
-            <p class="text-xl font-normal">Coffee Maria</p>
-            <p class="text-lg font-normal text-red-700">Total: $ <%= @total %></p>
+            <p class="text-xl font-bold">Item</p>
+            <p class="text-lg font-normal">Coffee Maria</p>
           </div>
-          <img class="shadow-lg" src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+          <div class="flex flex-row justify-between">
+            <p class="text-xl font-bold">Total</p>
+            <p class="text-lg font-normal text-red-700">$ <%= @total %></p>
+          </div>
         </div>
         <div class="w-full container mx-auto flex flex-col items-center mt-0 px-2 py-3">
           <section class="bg-white py-8">

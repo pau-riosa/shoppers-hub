@@ -1,39 +1,46 @@
-<section class="bg-white py-8">
-  <form class="w-full max-w-lg">  
-    <div class="flex flex-wrap -mx-3 mb-6"> 
-      <div class="w-full px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-          Card Number 
-        </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
-      </div>
+<div class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center">
+  <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+  <div class="modal-container bg-white w-1/4 md:min-w-xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
+    <div phx-click="modal-close" class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+      <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+        <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+      </svg>
+      <span class="text-sm">(Esc)</span>
     </div>
-    <div class="flex flex-wrap -mx-3 mb-6"> 
-      <div class="w-full md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-          Month of Expiration 
-        </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+    <!-- Add margin if you want to see some of the overlay behind the modal-->
+    <div class="modal-content py-10 text-left px-10">
+      <!--Title-->
+      <div class="flex justify-between items-center pb-3">
+        <p class="text-2xl uppercase font-bold"><%= @payment_type %> Payment</p>
+        <div phx-click="modal-close" class="modal-close cursor-pointer z-50">
+          <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+            <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+          </svg>
+        </div>
       </div>
-      <div class="w-full md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-          Year of Expiration 
-        </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+      <!--Body-->
+      <div class="container mx-auto flex items-center flex-row">
+        <div class="w-full container mx-auto flex flex-col mt-0 px-10 py-10">
+          <div class="flex flex-row justify-between">
+            <p class="text-xl font-bold">Item</p>
+            <p class="text-lg font-normal">Coffee Maria</p>
+          </div>
+          <div class="flex flex-row justify-between">
+            <p class="text-xl font-bold">Total</p>
+            <p class="text-lg font-normal text-red-700">$ <%= @total %></p>
+          </div>
+        </div>   
       </div>
-      <div class="w-full md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-          CVC 
-        </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+
+      <!--Footer-->
+      <div class="flex justify-end pt-2">
+        <button class="btn btn-gray">Cancel</button> 
+        <button class="btn btn-blue">
+          <i class="fas fa-shopping-cart"></i>
+          Pay
+        </button> 
       </div>
+
     </div>
-    <div class="flex flex-row justify-end">
-      <button class="btn btn-gray">Cancel</button> 
-      <button class="btn btn-blue">
-        <i class="fas fa-shopping-cart"></i>
-        Pay
-      </button> 
-    </div>        
-  </form>
-</section>
+  </div>
+</div>

@@ -6,17 +6,27 @@ defmodule PaymongoExampleWeb.HomeLive.Show do
     PaymongoExampleWeb.HomeView.render("show.html", assigns)
   end
 
-  def mount(_params, _payload, socket) do
+  def mount(params, _payload, socket) do
     socket =
       assign(
         socket,
         value: 1,
         total: @amount,
         amount: @amount,
-        payment_type: "card"
+        payment_type: "",
+        page_title: "Shopper's HUB — #{String.upcase(params["slug"])} "
       )
 
     {:ok, socket}
+  end
+
+  def handle_event("modal-close", _payload, socket) do
+    {:noreply, assign(socket, :payment_type, "")}
+  end
+
+  # if payment type value is grab or gcash generate payment
+  def handle_event("modal-open", %{"value" => value} = _payload, socket) do
+    {:noreply, assign(socket, payment_type: value)}
   end
 
   def handle_event("change-value", %{"value" => value} = _payload, socket) when value != "" do
