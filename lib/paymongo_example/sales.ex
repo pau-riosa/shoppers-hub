@@ -53,6 +53,7 @@ defmodule PaymongoExample.Sales do
     %Item{}
     |> Item.changeset(attrs)
     |> Repo.insert()
+    |> broadcast_change([:item, :created])
   end
 
   @doc """
@@ -71,6 +72,7 @@ defmodule PaymongoExample.Sales do
     item
     |> Item.changeset(attrs)
     |> Repo.update()
+    |> broadcast_change([:item, :updated])
   end
 
   @doc """
@@ -86,7 +88,9 @@ defmodule PaymongoExample.Sales do
 
   """
   def delete_item(%Item{} = item) do
-    Repo.delete(item)
+    item
+    |> Repo.delete()
+    |> broadcast_change([:item, :deleted])
   end
 
   @doc """
@@ -100,5 +104,16 @@ defmodule PaymongoExample.Sales do
   """
   def change_item(%Item{} = item, params \\ %{}) do
     Item.changeset(item, params)
+  end
+
+  @topic inspect(__MODULE__)
+
+  def subscribe do
+    Phoenix.PubSub.subscribe(PaymongoExample.PubSub, @topic)
+  end
+
+  def broadcast_change({:ok, result}, event) do
+    Phoenix.PubSub.broadcast(PaymongoExample.PubSub, @topic, {__MODULE__, event, result})
+    {:ok, result}
   end
 end
