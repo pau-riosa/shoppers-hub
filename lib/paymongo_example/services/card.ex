@@ -16,8 +16,10 @@ defmodule PaymongoExample.Services.Card do
     case process_params(params) do
       {:ok, data} ->
         IO.inspect("Processing payment...")
+        data
 
       {:error, changeset} ->
+        IO.inspect("Error processing payment...")
         changeset
     end
   end

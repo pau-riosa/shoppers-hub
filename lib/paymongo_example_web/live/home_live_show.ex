@@ -26,13 +26,26 @@ defmodule PaymongoExampleWeb.HomeLive.Show do
   end
 
   def handle_event("validate", %{"card_payment" => params} = _payload, socket) do
-    changeset = Card.submit(params)
-    {:noreply, assign(socket, :changeset, changeset)}
+    case Card.submit(params) do
+      %Ecto.Changeset{} = changeset ->
+        {:noreply, assign(socket, :changeset, changeset)}
+
+      _ ->
+        {:noreply, socket}
+    end
   end
 
   def handle_event("save", %{"card_payment" => params} = payload, socket) do
-    changeset = Card.submit(params)
-    {:noreply, assign(socket, :changeset, changeset)}
+    case Card.submit(params) do
+      %Ecto.Changeset{} = changeset ->
+        {:noreply, assign(socket, :changeset, changeset)}
+
+      _ ->
+        {:noreply,
+         socket
+         |> put_flash(:notice, "Successful")
+         |> redirect(to: Routes.home_index_path(socket, PaymongoExampleWeb.HomeLive.Index))}
+    end
   end
 
   def handle_event("modal-close", _payload, socket) do
