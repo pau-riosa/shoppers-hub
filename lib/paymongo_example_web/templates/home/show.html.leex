@@ -50,7 +50,7 @@
             GRAB PAY 
           </button> 
         </div>        
-        <%= live_component(@socket, PaymongoExampleWeb.PayLiveComponent, total: @total, payment_type: @payment_type) %>
+        <%= live_component(@socket, PaymongoExampleWeb.PayLiveComponent, total: @total, payment_type: @payment_type, id: "hero", changeset: @changeset) %>
       </div> 
     </div>
   </div>

@@ -4,8 +4,4 @@ defmodule PaymongoExampleWeb.PayLiveComponent do
   def render(assigns) do
     PaymongoExampleWeb.HomeView.render("pay.html", assigns)
   end
-
-  def mount(_params, _payload, socket) do
-    {:ok, socket}
-  end
 end

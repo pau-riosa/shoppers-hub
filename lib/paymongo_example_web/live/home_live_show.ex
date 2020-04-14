@@ -1,23 +1,38 @@
 defmodule PaymongoExampleWeb.HomeLive.Show do
   use PaymongoExampleWeb, :live
 
+  alias PaymongoExample.Sales, as: Sales
+  alias PaymongoExample.Sales.Item, as: Item
+  alias PaymongoExample.Services.Card, as: Card
+
   @amount 16.00
   def render(assigns) do
     PaymongoExampleWeb.HomeView.render("show.html", assigns)
   end
 
   def mount(params, _payload, socket) do
-    socket =
-      assign(
-        socket,
-        value: 1,
-        total: @amount,
-        amount: @amount,
-        payment_type: "",
-        page_title: "Shopper's HUB — #{String.upcase(params["slug"])} "
-      )
+    {:ok,
+     assign(
+       socket,
+       %{
+         value: 1,
+         total: @amount,
+         amount: @amount,
+         payment_type: "",
+         page_title: "Shopper's HUB — #{String.upcase(params["slug"])}",
+         changeset: Card.new()
+       }
+     )}
+  end
 
-    {:ok, socket}
+  def handle_event("validate", %{"card_payment" => params} = _payload, socket) do
+    changeset = Card.submit(params)
+    {:noreply, assign(socket, :changeset, changeset)}
+  end
+
+  def handle_event("save", %{"card_payment" => params} = payload, socket) do
+    changeset = Card.submit(params)
+    {:noreply, assign(socket, :changeset, changeset)}
   end
 
   def handle_event("modal-close", _payload, socket) do

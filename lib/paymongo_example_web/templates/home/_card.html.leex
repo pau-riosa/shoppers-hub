@@ -32,53 +32,48 @@
         </div>
         <div class="w-full container mx-auto flex flex-col items-center mt-0 px-2 py-3">
           <section class="bg-white py-8">
-            <form class="w-full max-w-lg">  
+            <%= form_for @changeset, "#", [as: :card_payment, phx_change: :validate, phx_submit: :save, class: "w-full max-w-lg"], fn f -> %>
               <div class="flex flex-wrap -mx-3 mb-6"> 
                 <div class="w-full px-3">
-                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-                    Card Number 
-                  </label>
-                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Card Number</label>
+                  <%= text_input f, :card_number, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", placeholder: "ex. 31123471982341" %>
+                  <%= error_tag f, :card_number %>
                 </div>
               </div>
               <div class="flex flex-wrap -mx-3 mb-6"> 
                 <div class="w-full md:w-1/2 px-3">
-                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-                    Month of Expiration 
-                  </label>
-                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Month of Expiration</label>
+                  <%= number_input f, :expiration_month, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", placeholder: "ex. 01" %>
+                  <%= error_tag f, :expiration_month %>
                 </div>
                 <div class="w-full md:w-1/2 px-3">
-                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-                    Year of Expiration 
-                  </label>
-                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
-                </div>
-                <div class="w-full md:w-1/3 px-3">
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Year of Expiration</label>
+                  <%= number_input f, :expiration_year, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", placeholder: "ex. 2010" %>
+                  <%= error_tag f, :expiration_year %>
                 </div>
               </div>
               <div class="flex flex-wrap -mx-3 mb-6"> 
                 <div class="w-full px-3">
-                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-                    CVC 
-                  </label>
-                  <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+                  <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">CVC</label>
+                  <%= text_input f, :cvc, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", placeholder: "ex. 123" %>
+                  <%= error_tag f, :cvc %>
                 </div>
               </div>
-            </form>
+
+              <div class="flex justify-end pt-2">
+                <button class="btn btn-gray">Cancel</button> 
+                <button type="submit" phx-disable-with="Submitting..." class="btn btn-blue">
+                  <i class="fas fa-shopping-cart"></i>
+                  Pay
+                </button> 
+              </div>
+            <% end %>
           </section>
         </div> 
       </div>
 
 
       <!--Footer-->
-      <div class="flex justify-end pt-2">
-        <button class="btn btn-gray">Cancel</button> 
-        <button class="btn btn-blue">
-          <i class="fas fa-shopping-cart"></i>
-          Pay
-        </button> 
-      </div>
 
     </div>
   </div>
