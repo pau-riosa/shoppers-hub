@@ -1,19 +1,19 @@
 <section class="bg-white py-8">
   <div class="container mx-auto flex items-center flex-row">
     <div class="w-full container mx-auto flex flex-col items-center mt-0 px-2 py-3">
-      <img class="shadow-lg" src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+      <img class="shadow-lg" src="<%= PaymongoExample.Photo.url({@item.avatar, @item}, :original)%>">
       
     </div>
     <div class="w-full container mx-auto flex flex-col items-center mt-0 px-2 py-3">
       <h1 class="tracking-wide font-bold text-gray-800 text-xl pb-5 ">
-        COFFEE MARIA 
+        <%= String.upcase(@item.name) %> 
       </h1>
       <div class="w-full max-w-lg mb-10 items-center">
         <p class="text-base text-justify font-normal text-gray-600 pb-5">
-          Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain Coffea species. Once ripe, coffee berries are picked, processed, and dried. Dried coffee seeds (referred to as "beans") are roasted to varying degrees, depending on the desired flavor. Roasted beans are ground and then brewed with near-boiling water to produce the beverage known as coffee.
+          <%= @item.description %> 
         </p>
         <div class="text-lg tracking-wide font-bold text-gray-800 pb-5 ">
-          $ <%= @amount %> 
+          $ <%= @item.price %> 
         </div>
       </div>
       <div class="w-full max-w-lg mb-10"> 
@@ -50,7 +50,7 @@
             GRAB PAY 
           </button> 
         </div>        
-        <%= live_component(@socket, PaymongoExampleWeb.PayLiveComponent, total: @total, payment_type: @payment_type, id: "hero", changeset: @changeset) %>
+        <%= live_component(@socket, PaymongoExampleWeb.PayLiveComponent, total: @total, payment_type: @payment_type, changeset: @changeset, item: @item) %>
       </div> 
     </div>
   </div>

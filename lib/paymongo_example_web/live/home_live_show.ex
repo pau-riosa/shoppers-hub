@@ -5,22 +5,24 @@ defmodule PaymongoExampleWeb.HomeLive.Show do
   alias PaymongoExample.Sales.Item, as: Item
   alias PaymongoExample.Services.Card, as: Card
 
-  @amount 16.00
   def render(assigns) do
     PaymongoExampleWeb.HomeView.render("show.html", assigns)
   end
 
   def mount(params, _payload, socket) do
+    item = Sales.get_item_by!(params["slug"])
+
     {:ok,
      assign(
        socket,
        %{
          value: 1,
-         total: @amount,
-         amount: @amount,
+         total: item.price,
+         amount: item.price,
          payment_type: "",
          page_title: "Shopper's HUB — #{String.upcase(params["slug"])}",
-         changeset: Card.new()
+         changeset: Card.new(),
+         item: item
        }
      )}
   end

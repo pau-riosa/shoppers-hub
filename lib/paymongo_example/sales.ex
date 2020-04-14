@@ -36,6 +36,7 @@ defmodule PaymongoExample.Sales do
 
   """
   def get_item!(id), do: Repo.get!(Item, id)
+  def get_item_by!(params), do: Repo.get_by!(Item, slug: params)
 
   @doc """
   Creates a item.
