@@ -19,22 +19,14 @@ defmodule PaymongoExampleWeb.ItemLive.Index do
     {:ok, socket}
   end
 
-  def handle_event("validate", %{"item" => params} = _payload, socket) do
+  def handle_event("validate", %{"item" => params} = payload, socket) do
+    IO.inspect(payload)
+
     changeset =
       %Item{}
       |> Sales.change_item(params)
       |> Map.put(:action, :insert)
 
     {:noreply, assign(socket, :changeset, changeset)}
-  end
-
-  def handle_event("save", %{"item" => params} = payload, socket) do
-    case Sales.create_item(params) do
-      {:error, %Ecto.Changeset{} = changeset} ->
-        {:noreply, assign(socket, :changeset, changeset)}
-
-      {:ok, _item} ->
-        {:noreply, socket}
-    end
   end
 end

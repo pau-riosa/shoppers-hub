@@ -1,6 +1,6 @@
 
 <div class="w-full container mx-auto flex flex-col items-center mt-0 px-2 py-10">
-  <%= form_for @changeset, "#", [multipart: true, phx_change: :validate, phx_submit: :save, class: "w-full max-w-lg"], fn f -> %>  
+  <%= form_for @changeset, @action, [multipart: true, class: "w-full max-w-lg"], fn f -> %>  
     <div class="flex flex-wrap -mx-3 mb-6"> 
       <div class="w-full px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Avatar</label>

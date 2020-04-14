@@ -10,6 +10,9 @@ use Mix.Config
 config :paymongo_example,
   ecto_repos: [PaymongoExample.Repo]
 
+config :arc,
+  storage: Arc.Storage.Local
+
 # Configures the endpoint
 config :paymongo_example, PaymongoExampleWeb.Endpoint,
   url: [host: "localhost"],

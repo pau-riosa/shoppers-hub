@@ -45,6 +45,9 @@ defmodule PaymongoExample.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:paymongo_elixir, "~> 1.1.0"},
 
+      # file-upload 
+      {:arc, "~> 0.11.0"},
+      {:arc_ecto, "~> 0.11.3"},
       # live-view
       {:phoenix_live_view, "~> 0.11.1"},
       {:floki, ">= 0.0.0", only: :test}
