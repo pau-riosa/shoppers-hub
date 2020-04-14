@@ -9,6 +9,7 @@ import css from "../css/app.scss"
 // Import dependencies
 //
 import "./components/modal.js"
+import "./components/snackbar.js"
 import "phoenix_html"
 import {Socket} from "phoenix"
 import LiveSocket from "phoenix_live_view"
