@@ -7,6 +7,7 @@ defmodule PaymongoExample.Sales.Item do
   schema "items" do
     field :description, :string
     field :name, :string
+    field :avatar, :string
     field :price, :integer
     field :slug, :string
 

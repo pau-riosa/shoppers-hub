@@ -26,6 +26,7 @@ defmodule PaymongoExampleWeb.Router do
 
     live "/", HomeLive.Index, as: :home_index
     live "/:slug/show", HomeLive.Show, as: :home_show
+    live "/items", ItemLive.Index, as: :item_index
   end
 
   # scope "/admin", PaymongoExampleWeb do

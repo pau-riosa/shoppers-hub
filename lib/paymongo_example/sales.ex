@@ -98,7 +98,7 @@ defmodule PaymongoExample.Sales do
       %Ecto.Changeset{source: %Item{}}
 
   """
-  def change_item(%Item{} = item) do
-    Item.changeset(item, %{})
+  def change_item(%Item{} = item, params \\ %{}) do
+    Item.changeset(item, params)
   end
 end

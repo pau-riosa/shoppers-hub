@@ -43,7 +43,7 @@ defmodule PaymongoExampleWeb.HomeLive.Show do
       _ ->
         {:noreply,
          socket
-         |> put_flash(:notice, "Successful")
+         |> put_flash(:notice, "successfully submitted.")
          |> redirect(to: Routes.home_index_path(socket, PaymongoExampleWeb.HomeLive.Index))}
     end
   end
