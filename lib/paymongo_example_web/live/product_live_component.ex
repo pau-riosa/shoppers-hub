@@ -9,7 +9,7 @@ defmodule PaymongoExampleWeb.ProductLiveComponent do
     PaymongoExampleWeb.HomeView.render("_products.html", assigns)
   end
 
-  def update(assigns, socket) do
+  def update(_assigns, socket) do
     products = Sales.list_items()
     {:ok, assign(socket, :products, products)}
   end

@@ -28,7 +28,7 @@ defmodule PaymongoExample.Photo do
   end
 
   # Override the storage directory:
-  def storage_dir(version, {file, scope}) do
+  def storage_dir(_version, {_file, scope}) do
     "uploads/item/#{scope.id}"
   end
 
