@@ -117,4 +117,6 @@ defmodule PaymongoExample.Sales do
     Phoenix.PubSub.broadcast(PaymongoExample.PubSub, @topic, {__MODULE__, event, result})
     {:ok, result}
   end
+
+  def broadcast_change(result, _event), do: result
 end

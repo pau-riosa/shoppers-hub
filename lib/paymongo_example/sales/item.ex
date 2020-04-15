@@ -1,4 +1,7 @@
 defmodule PaymongoExample.Sales.Item do
+  @moduledoc """
+  Item schema
+  """
   use Ecto.Schema
   use Arc.Ecto.Schema
   import Ecto.Changeset

@@ -44,7 +44,8 @@ defmodule PaymongoExample.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:paymongo_elixir, "~> 1.1.0"},
-
+      # static code analytic tools
+      {:credo, "~> 1.3", only: [:dev, :test], runtime: false},
       # file-upload 
       {:arc, "~> 0.11.0"},
       {:arc_ecto, "~> 0.11.3"},
