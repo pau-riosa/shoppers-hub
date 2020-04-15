@@ -27,14 +27,14 @@ defmodule PaymongoExampleWeb.Router do
     live "/", HomeLive.Index, as: :home_index
     live "/:slug/show", HomeLive.Show, as: :home_show
     # live "/items", ItemLive.Index, as: :item_index
-    resources "/items", ItemController
   end
 
-  # scope "/admin", PaymongoExampleWeb do
-  #   pipe_through [:browser, :admin]
+  scope "/admin", PaymongoExampleWeb do
+    pipe_through [:browser, :admin]
 
-  #   get "/", PageController, :index
-  # end
+    get "/", PageController, :index
+    resources "/items", ItemController
+  end
 
   # Other scopes may use custom stacks.
   # scope "/api", PaymongoExampleWeb do

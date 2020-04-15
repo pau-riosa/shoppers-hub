@@ -26,8 +26,7 @@ jobs:
           elixir-version: 1.10.x
       - run: mix local.hex --force
       - run: mix local.rebar --force        
-      - run: mix deps.get       
-      # - run: mix do deps.get, compile --warnings-as-errors
+      - run: mix do deps.get, compile --warnings-as-errors
       - run: mix ecto.setup 
       - run: mix credo --strict 
       - run: mix test

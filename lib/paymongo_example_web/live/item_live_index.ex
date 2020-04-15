@@ -22,7 +22,7 @@ defmodule PaymongoExampleWeb.ItemLive.Index do
     {:ok, socket}
   end
 
-  def handle_event("validate", %{"item" => params} = payload, socket) do
+  def handle_event("validate", %{"item" => params} = _payload, socket) do
     changeset =
       %Item{}
       |> Sales.change_item(params)

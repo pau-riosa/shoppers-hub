@@ -5,7 +5,6 @@ defmodule PaymongoExampleWeb.HomeLive.Show do
   use PaymongoExampleWeb, :live
 
   alias PaymongoExample.Sales, as: Sales
-  alias PaymongoExample.Sales.Item, as: Item
   alias PaymongoExample.Services.Card, as: Card
 
   def render(assigns) do
@@ -40,7 +39,7 @@ defmodule PaymongoExampleWeb.HomeLive.Show do
     end
   end
 
-  def handle_event("save", %{"card_payment" => params} = payload, socket) do
+  def handle_event("save", %{"card_payment" => params} = _payload, socket) do
     case Card.submit(params) do
       %Ecto.Changeset{} = changeset ->
         {:noreply, assign(socket, :changeset, changeset)}
