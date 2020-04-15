@@ -1,4 +1,7 @@
 defmodule PaymongoExample.Services.Card do
+  @moduledoc """
+  checking of form_inputs for card
+  """
   import Ecto.Changeset
 
   @schema %{
@@ -15,16 +18,15 @@ defmodule PaymongoExample.Services.Card do
   def submit(params) do
     case process_params(params) do
       {:ok, data} ->
-        IO.inspect("Processing payment...")
         data
 
       {:error, changeset} ->
-        IO.inspect("Error processing payment...")
         changeset
     end
   end
 
   @required_fields ~w(card_number expiration_month expiration_year cvc)a
+
   defp validate(changeset) do
     changeset
     |> validate_required(@required_fields)

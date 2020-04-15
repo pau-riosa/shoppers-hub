@@ -1,4 +1,7 @@
 defmodule PaymongoExampleWeb.HomeLive.Show do
+  @moduledoc """
+  Home Live Show
+  """
   use PaymongoExampleWeb, :live
 
   alias PaymongoExample.Sales, as: Sales

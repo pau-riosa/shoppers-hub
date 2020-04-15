@@ -1,4 +1,7 @@
 defmodule PaymongoExampleWeb.ItemLive.Index do
+  @moduledoc """
+  Item Live View
+  """
   use Phoenix.LiveView, layout: {PaymongoExampleWeb.LayoutView, "live.html"}
 
   alias PaymongoExample.Sales, as: Sales
@@ -20,8 +23,6 @@ defmodule PaymongoExampleWeb.ItemLive.Index do
   end
 
   def handle_event("validate", %{"item" => params} = payload, socket) do
-    IO.inspect(payload)
-
     changeset =
       %Item{}
       |> Sales.change_item(params)

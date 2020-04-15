@@ -1,4 +1,7 @@
 defmodule PaymongoExampleWeb.HomeLive.Index do
+  @moduledoc """
+  Home Live index
+  """
   use Phoenix.LiveView, layout: {PaymongoExampleWeb.LayoutView, "live.html"}
 
   alias PaymongoExample.Sales

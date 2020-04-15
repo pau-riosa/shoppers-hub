@@ -1,4 +1,7 @@
 defmodule PaymongoExample.Photo do
+  @moduledoc """
+  photo uploader
+  """
   use Arc.Definition
   use Arc.Ecto.Definition
 
@@ -6,7 +9,7 @@ defmodule PaymongoExample.Photo do
 
   def __storage, do: Arc.Storage.Local
 
-  # Whitelist file extensions: 
+  # Whitelist file extensions:
   def validate({file, _}) do
     ~w(.jpg .jpeg .gif .png)
     |> Enum.member?(Path.extname(String.downcase(file.file_name)))
