@@ -6,7 +6,10 @@
           <h1>Listing Items</h1>
         </div>
         <div class="flex-1 text-gray-700">
-          <button class="float-right btn btn-blue"><%= link "New Item", to: Routes.item_path(@conn, :new) %></button>
+          <button class="float-right btn btn-blue">
+            <i class="fas fa-file"></i>
+            <%= link "New Item", to: Routes.item_path(@conn, :new) %>
+          </button>
         </div>
       </div>
     </div>
@@ -19,7 +22,7 @@
               Name 
             </div>
             <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
-              Price 
+              Price
             </div>
             <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
               Slug 
@@ -29,22 +32,32 @@
             </div>
           </div>
           <%= for item <- @items do %>
-            <div class="table-row">
-              <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">
+            <div class="table-row content-center">
+              <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
                 <%= item.name %>
               </div>
-              <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">
+              <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
                 <%= item.price %>
               </div>
-              <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">
+              <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
                 <%= item.slug %>
               </div>
-              <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">
-                <span><%= link "Show", to: Routes.item_path(@conn, :show, item) %></span>
-                <span><%= link "Edit", to: Routes.item_path(@conn, :edit, item) %></span>
-                <span><%= link "Delete", to: Routes.item_path(@conn, :delete, item), method: :delete, data: [confirm: "Are you sure?"] %></span>
+              <div class="table-cell bg-gray-200 w-1/2">
+                <button class="btn btn-green">
+                  <i class="fas fa-eye"></i>
+                  <%= link "Show", to: Routes.item_path(@conn, :show, item) %>
+                </button>
+                <button class="btn btn-blue">
+                  <i class="fas fa-pen"></i>
+                  <%= link "Edit", to: Routes.item_path(@conn, :edit, item) %>
+                </button> 
+                <button class="btn btn-red">
+                  <i class="fas fa-trash"></i>
+                <%= link "Delete", to: Routes.item_path(@conn, :delete, item), method: :delete, data: [confirm: "Are you sure?"] %>
+                </button>
               </div>
             </div>
+            
           <% end %>
         </div>
       </div>
