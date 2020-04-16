@@ -81,6 +81,13 @@
 .fa-secondary {
   transition: var(--transition-speed);
 }
+
+@media only screen and (max-width : 600px) {
+  .footer {
+    display: none;
+  }
+}
+
 /* small screens */
 @media only screen and (max-width: 600px) {
  .navbar {
