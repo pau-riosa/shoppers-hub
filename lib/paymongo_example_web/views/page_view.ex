@@ -1,3 +1,3 @@
-defmodule PaymongoExampleWeb.PageView do
+defmodule PaymongoExampleWeb.Admin.PageView do
   use PaymongoExampleWeb, :view
 end
