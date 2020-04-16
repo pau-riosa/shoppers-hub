@@ -1,24 +1,49 @@
-<h1>Listing Items</h1>
+<!-- Span top edge -->
+<div class="container mx-auto shadow-xl">
+  <div class="flex py-5">
+    <div class="flex-1 text-lg font-bold text-gray-700">
+      <h1>Listing Items</h1>
+    </div>
+    <div class="flex-1 text-gray-700">
+      <button class="float-right btn btn-blue"><%= link "New Item", to: Routes.item_path(@conn, :new) %></button>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for item <- @items do %>
-    <tr>
-
-      <td>
-        <span><%= link "Show", to: Routes.item_path(@conn, :show, item) %></span>
-        <span><%= link "Edit", to: Routes.item_path(@conn, :edit, item) %></span>
-        <span><%= link "Delete", to: Routes.item_path(@conn, :delete, item), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
-
-<span><%= link "New Item", to: Routes.item_path(@conn, :new) %></span>
+  
+  <div class="table w-full shadow-lg">
+    <div class="table-row-group">
+      <div class="table-row header">
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Name 
+        </div>
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Price 
+        </div>
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Slug 
+        </div>
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Action 
+        </div>
+      </div>
+      <%= for item <- @items do %>
+        <div class="table-row">
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">
+            <%= item.name %>
+          </div>
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">
+            <%= item.price %>
+          </div>
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">
+            <%= item.slug %>
+          </div>
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm">
+            <span><%= link "Show", to: Routes.item_path(@conn, :show, item) %></span>
+            <span><%= link "Edit", to: Routes.item_path(@conn, :edit, item) %></span>
+            <span><%= link "Delete", to: Routes.item_path(@conn, :delete, item), method: :delete, data: [confirm: "Are you sure?"] %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
