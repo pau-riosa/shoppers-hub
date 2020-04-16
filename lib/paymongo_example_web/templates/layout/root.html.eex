@@ -9,10 +9,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"/>
     <%= csrf_meta_tag() %>
   </head>
-  <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
-    <%= render PaymongoExampleWeb.SharedView, "_nav-header.html" %>   
-    <%= @inner_content %>
-    <%= render PaymongoExampleWeb.SharedView, "_home-footer.html" %>   
-    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-  </body>
+  <%= @inner_content %>
+  <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
 </html>

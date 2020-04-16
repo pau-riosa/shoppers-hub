@@ -1,3 +1,6 @@
+
+<body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+<%= render PaymongoExampleWeb.SharedView, "_nav-header.html" %>   
 <%= unless is_nil(live_flash(@flash, :notice)) do %>
   <div class="bg-blue-100 float-right m-3 w-1/4 md:w-1/4 border border-blue-400 text-blue-700 px-4 py-3 rounded relative" id="alert">
     <strong class="font-bold">Payment <%= live_flash(@flash, :notice) %>!</strong>
@@ -15,3 +18,5 @@
   </div>
 <% end %>
 <%= @inner_content %>
+<%= render PaymongoExampleWeb.SharedView, "_home-footer.html" %>   
+</body>

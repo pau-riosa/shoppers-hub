@@ -1,5 +1,6 @@
 defmodule PaymongoExampleWeb.Router do
   use PaymongoExampleWeb, :router
+  import Phoenix.LiveDashboard.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,7 +15,7 @@ defmodule PaymongoExampleWeb.Router do
   end
 
   pipeline :admin do
-    plug(:put_layout, {PaymongoExampleWeb.LayoutView, :app})
+    plug(:put_layout, {PaymongoExampleWeb.LayoutView, :admin})
   end
 
   pipeline :root do
@@ -29,8 +30,14 @@ defmodule PaymongoExampleWeb.Router do
     # live "/items", ItemLive.Index, as: :item_index
   end
 
-  scope "/admin", PaymongoExampleWeb do
-    pipe_through [:browser, :admin]
+  scope "/admin", PaymongoExampleWeb.Admin do
+    pipe_through [:browser, :root, :admin]
+
+    if Mix.env() == :dev do
+      scope "/" do
+        live_dashboard "/dashboard"
+      end
+    end
 
     get "/", PageController, :index
     resources "/items", ItemController

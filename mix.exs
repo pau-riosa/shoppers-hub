@@ -44,13 +44,16 @@ defmodule PaymongoExample.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:paymongo_elixir, "~> 1.1.0"},
+
+      # live-view-dashboard
+      {:phoenix_live_dashboard, github: "phoenixframework/phoenix_live_dashboard"},
       # static code analytic tools
       {:credo, "~> 1.3", only: [:dev, :test], runtime: false},
       # file-upload 
       {:arc, "~> 0.11.0"},
       {:arc_ecto, "~> 0.11.3"},
       # live-view
-      {:phoenix_live_view, "~> 0.11.1"},
+      {:phoenix_live_view, "~> 0.11.1", override: true},
       {:floki, ">= 0.0.0", only: :test}
     ]
   end

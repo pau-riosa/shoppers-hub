@@ -1,4 +1,4 @@
-defmodule PaymongoExampleWeb.ItemController do
+defmodule PaymongoExampleWeb.Admin.ItemController do
   use PaymongoExampleWeb, :controller
 
   alias PaymongoExample.Sales
