@@ -2,7 +2,7 @@
   <ul class="navbar-nav">
     <!-- Admin Logo --> 
     <li class="logo">
-      <a href="#" class="nav-link">
+      <a href="/admin" class="nav-link">
         <span class="link-text logo-text">Admin</span>
         <svg
           aria-hidden="true"
