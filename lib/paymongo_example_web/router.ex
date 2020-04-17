@@ -1,6 +1,5 @@
 defmodule PaymongoExampleWeb.Router do
   use PaymongoExampleWeb, :router
-  import Phoenix.LiveDashboard.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -40,6 +39,7 @@ defmodule PaymongoExampleWeb.Router do
     end
 
     get "/", PageController, :index
+    live "/", DashboardLive, as: :dashboard
     resources "/items", ItemController
   end
 
