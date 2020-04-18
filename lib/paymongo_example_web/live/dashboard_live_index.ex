@@ -3,8 +3,8 @@ defmodule PaymongoExampleWeb.Admin.DashboardLive do
   Home Live index
   """
   use Phoenix.LiveView
-  alias PaymongoExampleWeb.Admin.DashboardView
   alias PaymongoExample.Sales
+  alias PaymongoExampleWeb.Admin.DashboardView
 
   def render(assigns) do
     DashboardView.render("index.html", assigns)
