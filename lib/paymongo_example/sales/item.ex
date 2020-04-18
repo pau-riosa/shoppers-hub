@@ -25,6 +25,7 @@ defmodule PaymongoExample.Sales.Item do
     |> generate_id()
     |> cast_attachments(attrs, [:id, :avatar])
     |> validate_required([:name, :description, :price, :slug])
+    |> validate_number(:price, greater_than_or_equal_to: 100, message: "minimum of 100")
   end
 
   def generate_id(changeset) do

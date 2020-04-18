@@ -3,9 +3,10 @@ defmodule PaymongoExampleWeb.Admin.DashboardLive do
   Home Live index
   """
   use Phoenix.LiveView
+  alias PaymongoExampleWeb.Admin.DashboardView
 
   def render(assigns) do
-    PaymongoExampleWeb.Admin.DashboardView.render("index.html", assigns)
+    DashboardView.render("index.html", assigns)
   end
 
   def mount(_params, _payload, socket) do

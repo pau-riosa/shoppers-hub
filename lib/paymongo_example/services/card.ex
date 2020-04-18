@@ -16,9 +16,6 @@ defmodule PaymongoExample.Services.Card do
     cast(%{})
   end
 
-  # process params
-  # process card intent 
-
   def validate_inputs(params) do
     case process_params(params) do
       {:ok, data} ->
