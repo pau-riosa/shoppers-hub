@@ -29,8 +29,12 @@ defmodule PaymongoExampleWeb.HomeLive.Show do
      )}
   end
 
+  def handle_info("modal-close", socket) do
+    {:noreply, assign(socket, :payment_type, "")}
+  end
+
   def handle_event("validate", %{"card_payment" => params} = _payload, socket) do
-    case Card.submit(params) do
+    case Card.validate_inputs(params) do
       %Ecto.Changeset{} = changeset ->
         {:noreply, assign(socket, :changeset, changeset)}
 
@@ -43,6 +47,13 @@ defmodule PaymongoExampleWeb.HomeLive.Show do
     case Card.submit(params) do
       %Ecto.Changeset{} = changeset ->
         {:noreply, assign(socket, :changeset, changeset)}
+
+      {:error, errors} ->
+        send(self(), "modal-close")
+
+        {:noreply,
+         socket
+         |> put_flash(:error, errors)}
 
       _ ->
         {:noreply,

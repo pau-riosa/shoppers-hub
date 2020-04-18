@@ -36,6 +36,14 @@ defmodule PaymongoExample.Services.CardTest do
     expiration_year: 2030,
     cvc: "3224"
   }
+
+  @card_expired %{
+    amount: 100,
+    card_number: "4343434343434345",
+    expiration_month: 1,
+    expiration_year: 2020,
+    cvc: "322"
+  }
   setup do
     ExVCR.Config.cassette_library_dir("test/cassettes")
     :ok
@@ -52,6 +60,12 @@ defmodule PaymongoExample.Services.CardTest do
   end
 
   describe "invalid attributes" do
+    test "card expired" do
+      use_cassette "card expired" do
+        assert {:error, "The card is already expired."} = Card.submit(@card_expired)
+      end
+    end
+
     test "invalid cvc" do
       use_cassette "invalid cvc" do
         assert %{errors: errors} = Card.submit(@invalid_cvc)
@@ -59,7 +73,7 @@ defmodule PaymongoExample.Services.CardTest do
         assert [
                  cvc:
                    {"invalid length of cvc.",
-                    [{:count, 3}, {:validation, :length}, {:kind, :is}, {:type, :string}]}
+                    [{:count, 3}, {:validation, :length}, {:kind, :max}, {:type, :string}]}
                ] = errors
       end
     end

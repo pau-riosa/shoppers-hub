@@ -1,0 +1,65 @@
+[
+  {
+    "request": {
+      "body": "{\"data\":{\"attributes\":{\"amount\":10000,\"currency\":\"PHP\",\"payment_method_allowed\":[\"card\"]}}}",
+      "headers": {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "authorization": "Basic c2tfdGVzdF85MjV6NGpEUlUxU0FMOGdMemdkV1VXM2U6"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.paymongo.com/v1/payment_intents"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"data\":{\"id\":\"pi_XNVVgLP4q4Cw7zieqjhhgQjb\",\"type\":\"payment_intent\",\"attributes\":{\"amount\":10000,\"currency\":\"PHP\",\"description\":null,\"statement_descriptor\":null,\"status\":\"awaiting_payment_method\",\"livemode\":false,\"client_key\":\"pi_XNVVgLP4q4Cw7zieqjhhgQjb_client_b84A3F4FZvCaVKe1Sa9vvBLL\",\"created_at\":1587213615,\"updated_at\":1587213615,\"last_payment_error\":null,\"payment_method_allowed\":[\"card\"],\"payments\":[],\"next_action\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"metadata\":null}}}",
+      "headers": {
+        "Date": "Sat, 18 Apr 2020 12:40:15 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "nginx",
+        "Vary": "Accept-Encoding",
+        "ETag": "W/\"cd1aee7559acaac33ea5618f4560e64c\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "7af39774-9705-473e-84eb-ba3d9eb3a1cb",
+        "X-Runtime": "0.038778"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"data\":{\"attributes\":{\"details\":{\"card_number\":\"4343434343434345\",\"cvc\":\"322\",\"exp_month\":1,\"exp_year\":2020},\"type\":\"card\"}}}",
+      "headers": {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "authorization": "Basic cGtfdGVzdF9KZzJFQW1oZ3ZjY2dHOVc2ZnJhVlpYbXQ6"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.paymongo.com/v1/payment_methods"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"errors\":[{\"code\":\"parameter_invalid\",\"detail\":\"The card is already expired.\",\"source\":{\"pointer\":\"details.exp_month\",\"attribute\":\"exp_month\"}}]}",
+      "headers": {
+        "Date": "Sat, 18 Apr 2020 12:40:16 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "nginx",
+        "Cache-Control": "no-cache",
+        "X-Request-Id": "984bf8e8-148f-45d9-b5bd-b03376d8bb2b",
+        "X-Runtime": "0.005978",
+        "Vary": "Origin"
+      },
+      "status_code": 400,
+      "type": "ok"
+    }
+  }
+]

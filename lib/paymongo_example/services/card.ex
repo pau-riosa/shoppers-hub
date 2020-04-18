@@ -18,17 +18,36 @@ defmodule PaymongoExample.Services.Card do
 
   # process params
   # process card intent 
+
+  def validate_inputs(params) do
+    case process_params(params) do
+      {:ok, data} ->
+        data
+
+      {:error, changeset} ->
+        changeset
+    end
+  end
+
   def submit(params) do
     with {:ok, data} <- process_params(params),
          %{"attributes" => _data} <- initialize_payment(data) do
       data
     else
-      {:error, changeset} ->
-        changeset
+      {:error, [_ | _] = errors} ->
+        {:error, parse_paymongo_error(errors)}
 
-      %{"errors" => errors} ->
-        raise errors
+      {:error, %Ecto.Changeset{} = changeset} ->
+        changeset
     end
+  end
+
+  defp parse_paymongo_error(errors) do
+    error =
+      errors
+      |> List.first()
+
+    "#{error["detail"]}"
   end
 
   defp initialize_payment(params) do
@@ -97,7 +116,16 @@ defmodule PaymongoExample.Services.Card do
     changeset
     |> validate_required(@required_fields)
     |> validate_length(:card_number, is: 16, message: "invalid length of card number.")
-    |> validate_length(:cvc, is: 3, message: "invalid length of cvc.")
+    |> validate_length(:cvc, max: 3, min: 3, message: "invalid length of cvc.")
+    |> validate_change(:expiration_year, fn :expiration_year, input_year ->
+      date = Date.utc_today()
+
+      if input_year < date.year do
+        [expiration_year: "year must be greater than year today"]
+      else
+        []
+      end
+    end)
     |> validate_inclusion(:expiration_month, 1..12)
   end
 
