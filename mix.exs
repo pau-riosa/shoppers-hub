@@ -53,7 +53,7 @@ defmodule PaymongoExample.MixProject do
       {:arc, "~> 0.11.0"},
       {:arc_ecto, "~> 0.11.3"},
       # live-view
-      {:phoenix_live_view, "~> 0.11.1", override: true},
+      {:phoenix_live_view, "~> 0.12.0", override: true},
       {:floki, ">= 0.0.0", only: :test}
     ]
   end
