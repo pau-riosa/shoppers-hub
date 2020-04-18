@@ -7,6 +7,7 @@ defmodule PaymongoExample.Services.Card do
 
   @schema %{
     amount: :integer,
+    description: :string,
     card_number: :string,
     expiration_month: :integer,
     expiration_year: :integer,
@@ -81,13 +82,14 @@ defmodule PaymongoExample.Services.Card do
     }
   end
 
-  defp payment_intent_params(data) do
+  defp payment_intent_params(params) do
     %{
       "data" => %{
         "attributes" => %{
-          "amount" => data[:amount] * 100,
+          "amount" => params[:amount] * 100,
           "payment_method_allowed" => ["card"],
-          "currency" => "PHP"
+          "currency" => "PHP",
+          "description" => params[:description]
         }
       }
     }
@@ -109,7 +111,7 @@ defmodule PaymongoExample.Services.Card do
     }
   end
 
-  @required_fields ~w(amount card_number expiration_month expiration_year cvc)a
+  @required_fields ~w(amount description card_number expiration_month expiration_year cvc)a
 
   defp validate(changeset) do
     changeset

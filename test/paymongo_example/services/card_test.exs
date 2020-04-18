@@ -10,6 +10,7 @@ defmodule PaymongoExample.Services.CardTest do
     card_number: "4343434343434345",
     expiration_month: 12,
     expiration_year: 2030,
+    description: "Coffee-1",
     cvc: "321"
   }
 
@@ -18,6 +19,7 @@ defmodule PaymongoExample.Services.CardTest do
     card_number: "434343434343434",
     expiration_month: 12,
     expiration_year: 2030,
+    description: "Coffee-1",
     cvc: "321"
   }
 
@@ -26,6 +28,7 @@ defmodule PaymongoExample.Services.CardTest do
     card_number: "4343434343434345",
     expiration_month: 13,
     expiration_year: 2030,
+    description: "Coffee-1",
     cvc: "321"
   }
 
@@ -34,6 +37,7 @@ defmodule PaymongoExample.Services.CardTest do
     card_number: "4343434343434345",
     expiration_month: 12,
     expiration_year: 2030,
+    description: "Coffee-1",
     cvc: "3224"
   }
 
@@ -42,8 +46,10 @@ defmodule PaymongoExample.Services.CardTest do
     card_number: "4343434343434345",
     expiration_month: 1,
     expiration_year: 2020,
+    description: "Coffee-1",
     cvc: "322"
   }
+
   setup do
     ExVCR.Config.cassette_library_dir("test/cassettes")
     :ok
