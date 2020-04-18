@@ -39,7 +39,7 @@ defmodule PaymongoExampleWeb.Router do
     end
 
     get "/", PageController, :index
-    live "/", DashboardLive, as: :dashboard
+    live "/live-dashboard", DashboardLive, as: :dashboard
     resources "/items", ItemController
   end
 

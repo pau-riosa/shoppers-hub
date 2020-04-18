@@ -16,8 +16,13 @@ defmodule PaymongoExampleWeb.Admin.DashboardLive do
   end
 
   defp list_of_transactions do
-    %{"data" => data} = PaymongoElixir.list(:list_payments)
-    parse_data(data)
+    with %{"data" => data} <- PaymongoElixir.list(:list_payments),
+         data <- parse_data(data) do
+      data
+    else
+      {:error, errors} ->
+        errors
+    end
   end
 
   defp parse_data(data) do

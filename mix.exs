@@ -43,8 +43,10 @@ defmodule PaymongoExample.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:paymongo_elixir, "~> 1.1.0"},
+      {:paymongo_elixir, "~> 1.2.0"},
 
+      # api test 
+      {:exvcr, "~> 0.11", only: :test},
       # live-view-dashboard
       {:phoenix_live_dashboard, github: "phoenixframework/phoenix_live_dashboard"},
       # static code analytic tools

@@ -1,0 +1,98 @@
+[
+  {
+    "request": {
+      "body": "{\"data\":{\"attributes\":{\"amount\":10000,\"currency\":\"PHP\",\"payment_method_allowed\":[\"card\"]}}}",
+      "headers": {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "authorization": "Basic c2tfdGVzdF85MjV6NGpEUlUxU0FMOGdMemdkV1VXM2U6"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.paymongo.com/v1/payment_intents"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"data\":{\"id\":\"pi_3DY8oGrpAwpEx88voUtF7HK3\",\"type\":\"payment_intent\",\"attributes\":{\"amount\":10000,\"currency\":\"PHP\",\"description\":null,\"statement_descriptor\":null,\"status\":\"awaiting_payment_method\",\"livemode\":false,\"client_key\":\"pi_3DY8oGrpAwpEx88voUtF7HK3_client_Y7EaxU9vKCkjesE1At6J4afB\",\"created_at\":1587210018,\"updated_at\":1587210018,\"last_payment_error\":null,\"payment_method_allowed\":[\"card\"],\"payments\":[],\"next_action\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"metadata\":null}}}",
+      "headers": {
+        "Date": "Sat, 18 Apr 2020 11:40:18 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "nginx",
+        "Vary": "Accept-Encoding",
+        "ETag": "W/\"2348406d359f4afff59711850df363da\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "8d0031d3-96f1-4d5f-b1d8-4f3ba757d22a",
+        "X-Runtime": "0.072914"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"data\":{\"attributes\":{\"details\":{\"card_number\":\"4343434343434345\",\"cvc\":\"321\",\"exp_month\":12,\"exp_year\":2030},\"type\":\"card\"}}}",
+      "headers": {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "authorization": "Basic cGtfdGVzdF9KZzJFQW1oZ3ZjY2dHOVc2ZnJhVlpYbXQ6"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.paymongo.com/v1/payment_methods"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"data\":{\"id\":\"pm_uXW8uyhKRUAbtuT2GcBAys3k\",\"type\":\"payment_method\",\"attributes\":{\"livemode\":false,\"type\":\"card\",\"billing\":null,\"created_at\":1587210019,\"updated_at\":1587210019,\"details\":{\"last4\":\"4345\",\"exp_month\":12,\"exp_year\":2030,\"cvc\":\"321\"},\"metadata\":null}}}",
+      "headers": {
+        "Date": "Sat, 18 Apr 2020 11:40:19 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "nginx",
+        "Vary": "Accept-Encoding",
+        "ETag": "W/\"eac11c83cca293ad3866ecb4a93cd605\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "90b5aaac-7298-41aa-8994-29873a451cae",
+        "X-Runtime": "0.058751"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{\"data\":{\"attributes\":{\"payment_method\":\"pm_uXW8uyhKRUAbtuT2GcBAys3k\"}}}",
+      "headers": {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "authorization": "Basic c2tfdGVzdF85MjV6NGpEUlUxU0FMOGdMemdkV1VXM2U6"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.paymongo.com/v1/payment_intents/pi_3DY8oGrpAwpEx88voUtF7HK3/attach?client_key=pi_3DY8oGrpAwpEx88voUtF7HK3_client_Y7EaxU9vKCkjesE1At6J4afB"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"data\":{\"id\":\"pi_3DY8oGrpAwpEx88voUtF7HK3\",\"type\":\"payment_intent\",\"attributes\":{\"amount\":10000,\"currency\":\"PHP\",\"description\":null,\"statement_descriptor\":null,\"status\":\"succeeded\",\"livemode\":false,\"client_key\":\"pi_3DY8oGrpAwpEx88voUtF7HK3_client_Y7EaxU9vKCkjesE1At6J4afB\",\"created_at\":1587210018,\"updated_at\":1587210019,\"last_payment_error\":null,\"payment_method_allowed\":[\"card\"],\"payments\":[{\"id\":\"pay_mx4xREMb9TDaDA1pcz94BQva\",\"type\":\"payment\",\"attributes\":{\"access_url\":null,\"amount\":10000,\"billing\":null,\"currency\":\"PHP\",\"description\":null,\"external_reference_number\":\"\",\"fee\":1850,\"livemode\":false,\"net_amount\":8150,\"payout\":null,\"source\":{\"id\":\"card_qLgZAoEUvBUvStDUhtU5sUXg\",\"type\":\"card\"},\"statement_descriptor\":null,\"status\":\"paid\",\"created_at\":1587210019,\"paid_at\":1587210019,\"updated_at\":1587210019}}],\"next_action\":null,\"payment_method_options\":{\"card\":{\"request_three_d_secure\":\"automatic\"}},\"metadata\":null}}}",
+      "headers": {
+        "Date": "Sat, 18 Apr 2020 11:40:19 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "nginx",
+        "Vary": "Accept-Encoding",
+        "ETag": "W/\"b7f922fe6b3c592fa16177a8d12004c1\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "80361c8c-5e5a-4945-b184-29deb4557109",
+        "X-Runtime": "0.103186"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

@@ -10,7 +10,7 @@ config :paymongo_example, PaymongoExample.Repo,
   pool_size: 10
 
 config :paymongo_elixir,
-  client_id: "pk_test_Jg2EAmhgvccgG9W6fraVZXmt",
+  client_key: "pk_test_Jg2EAmhgvccgG9W6fraVZXmt",
   client_secret: "sk_test_925z4jDRU1SAL8gLzgdWUW3e"
 
 # For development, we disable any cache and enable
