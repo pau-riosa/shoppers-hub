@@ -55,7 +55,7 @@ defmodule PaymongoExample.Services.CardTest do
 
   test "submit payment via card" do
     use_cassette "submit payment via card" do
-      assert @valid_attributes = Card.submit(@valid_attributes)
+      assert {:ok, @valid_attributes} = Card.submit(@valid_attributes)
     end
   end
 

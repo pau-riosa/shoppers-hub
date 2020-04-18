@@ -4,16 +4,25 @@ defmodule PaymongoExampleWeb.Admin.DashboardLive do
   """
   use Phoenix.LiveView
   alias PaymongoExampleWeb.Admin.DashboardView
+  alias PaymongoExample.Sales
 
   def render(assigns) do
     DashboardView.render("index.html", assigns)
   end
 
   def mount(_params, _payload, socket) do
-    {:ok,
-     assign(socket,
-       list_of_transactions: list_of_transactions()
-     )}
+    Sales.subscribe()
+    {:ok, fetch(socket)}
+  end
+
+  def handle_info({Sales, [:item | _], _}, socket) do
+    {:noreply, fetch(socket)}
+  end
+
+  defp fetch(socket) do
+    assign(socket,
+      list_of_transactions: list_of_transactions()
+    )
   end
 
   defp list_of_transactions do

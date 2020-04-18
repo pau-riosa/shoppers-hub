@@ -6,8 +6,18 @@ defmodule PaymongoExample.SalesTest do
   describe "items" do
     alias PaymongoExample.Sales.Item
 
-    @valid_attrs %{description: "some description", name: "some name", price: 42, slug: "some slug"}
-    @update_attrs %{description: "some updated description", name: "some updated name", price: 43, slug: "some updated slug"}
+    @valid_attrs %{
+      description: "some description",
+      name: "some name",
+      price: 420,
+      slug: "some slug"
+    }
+    @update_attrs %{
+      description: "some updated description",
+      name: "some updated name",
+      price: 430,
+      slug: "some updated slug"
+    }
     @invalid_attrs %{description: nil, name: nil, price: nil, slug: nil}
 
     def item_fixture(attrs \\ %{}) do
@@ -33,7 +43,7 @@ defmodule PaymongoExample.SalesTest do
       assert {:ok, %Item{} = item} = Sales.create_item(@valid_attrs)
       assert item.description == "some description"
       assert item.name == "some name"
-      assert item.price == 42
+      assert item.price == 420
       assert item.slug == "some slug"
     end
 
@@ -46,7 +56,7 @@ defmodule PaymongoExample.SalesTest do
       assert {:ok, %Item{} = item} = Sales.update_item(item, @update_attrs)
       assert item.description == "some updated description"
       assert item.name == "some updated name"
-      assert item.price == 43
+      assert item.price == 430
       assert item.slug == "some updated slug"
     end
 

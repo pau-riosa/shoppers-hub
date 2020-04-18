@@ -3,6 +3,7 @@ defmodule PaymongoExample.Services.Card do
   checking of form_inputs for card
   """
   import Ecto.Changeset
+  alias PaymongoExample.Sales
 
   @schema %{
     amount: :integer,
@@ -29,7 +30,8 @@ defmodule PaymongoExample.Services.Card do
   def submit(params) do
     with {:ok, data} <- process_params(params),
          %{"attributes" => _data} <- initialize_payment(data) do
-      data
+      {:ok, data}
+      |> Sales.broadcast_change([:item, :paid])
     else
       {:error, [_ | _] = errors} ->
         {:error, parse_paymongo_error(errors)}
