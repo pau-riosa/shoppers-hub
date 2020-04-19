@@ -20,7 +20,7 @@ config :logger, level: :info
 
 config :paymongo_elixir,
   client_key: System.get_env("PAYMONGO_CLIENT_KEY"),
-  client_secret: System.get_env("PAYMONGO_CLIENT_KEY")
+  client_secret: System.get_env("PAYMONGO_CLIENT_SECRET")
 
 # ## SSL Support
 #
