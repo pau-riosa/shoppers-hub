@@ -2,8 +2,9 @@
 
 simulate shopping experience using paymongo api.
 
-tools:
+TODOs:
 
-* phoenix
-* elixir
-* tailwind css
+1. add test
+2. code refactoring
+
+Here is the working sample: https://sleepy-badlands-12571.herokuapp.com/
