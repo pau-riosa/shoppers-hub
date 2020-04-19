@@ -44,7 +44,8 @@ defmodule PaymongoExampleWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", PaymongoExampleWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", PaymongoExampleWeb do
+    pipe_through :api
+    post "/shoppers-hub-webhooks", WebhookController, :webhooks
+  end
 end
