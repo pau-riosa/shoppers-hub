@@ -41,7 +41,7 @@ defmodule PaymongoExampleWeb.Admin.DashboardLive do
   end
 
   defp list_of_source do
-    with data <- PaymongoExample.list_webhooks() do
+    with data <- PaymongoExample.Sales.list_webhooks() do
       data
     end
   end
