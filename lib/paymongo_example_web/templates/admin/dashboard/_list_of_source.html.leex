@@ -1,0 +1,51 @@
+<div class="w-full">
+  <div class="container w-full py-5">
+    <div class="flex flex-row w-full">
+      <div class="flex-1 text-lg font-bold text-gray-700">
+        <h1>List of Source</h1>
+      </div> 
+    </div>
+  </div>
+
+  <div class="table w-full shadow-lg">
+    <div class="table-row-group">
+      <div class="table-row header">
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Event ID 
+        </div>
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Amount 
+        </div>
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm"> </div>
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Source 
+        </div>
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Action
+        </div>
+      </div>
+      <%= for source <- @source_payments do %>
+        <div class="table-row content-center">
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
+            <%= source.event_id %> 
+          </div>
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
+            <%= source.data["data"]["attributes"]["data"]["attributes"]["amount"] %> 
+          </div>
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
+            <%= source.data["data"]["attributes"]["data"]["attributes"]["status"] %> 
+          </div>
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
+            <%= source.data["data"]["attributes"]["data"]["attributes"]["type"] %> 
+          </div>
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
+            <button class="btn btn-green">
+              <i class="fas fa-money-bill"></i>
+              Accept Payment
+            </button> 
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

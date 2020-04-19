@@ -1,0 +1,59 @@
+<div class="w-full">
+  <div class="container w-full py-5">
+    <div class="flex flex-row w-full">
+      <div class="flex-1 text-lg font-bold text-gray-700">
+        <h1>List of Payments</h1>
+      </div> 
+    </div>
+  </div>
+
+  <div class="table w-full shadow-lg">
+    <div class="table-row-group">
+      <div class="table-row header">
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Payment Method 
+        </div>
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Amount
+        </div>
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm"> </div>
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Description 
+        </div>
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Created date 
+        </div>
+        <div class="table-cell text-md font-bold bg-gray-400 text-gray-700 px-4 py-2 text-sm">
+          Action
+        </div>
+      </div>
+      <%= for transaction <- @list_of_transactions do %>
+        <div class="table-row content-center">
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
+            <%= transaction.payment_method %> 
+          </div>
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
+            <%= transaction.amount %> 
+          </div>
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
+            <%= transaction.payment_status %> 
+          </div>
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
+            <%= transaction.description %> 
+          </div>
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
+            <%= transaction.paid_at %> 
+          </div>
+          <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
+            <button class="btn btn-green">
+              <i class="fas fa-pen"></i>
+              View Details
+            </button> 
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>
