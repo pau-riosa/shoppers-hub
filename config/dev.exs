@@ -10,8 +10,8 @@ config :paymongo_example, PaymongoExample.Repo,
   pool_size: 10
 
 config :paymongo_elixir,
-  client_key: "pk_test_Jg2EAmhgvccgG9W6fraVZXmt",
-  client_secret: "sk_test_925z4jDRU1SAL8gLzgdWUW3e"
+  client_key: System.get_env("PAYMONGO_PUBLIC_KEY"),
+  client_secret: System.get_env("PAYMONGO_SECRET_KEY")
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
