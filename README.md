@@ -11,4 +11,4 @@ TODOs:
 
 Here is the working sample: https://sleepy-badlands-12571.herokuapp.com/
 
-will try to working on mobile-app stay tune!
+will try to work on mobile app stay tune!
