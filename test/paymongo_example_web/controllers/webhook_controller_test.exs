@@ -7,7 +7,7 @@ defmodule PaymongoExampleWeb.WebhookControllerTest do
         "created_at" => 1_587_261_508,
         "data" => %{
           "attributes" => %{
-            "amount" => 10000,
+            "amount" => 10_000,
             "billing" => nil,
             "created_at" => 1_587_261_483,
             "currency" => "PHP",

@@ -5,9 +5,10 @@ defmodule PaymongoExampleWeb.SourcePaymentLive do
   use Phoenix.LiveComponent
   alias PaymongoExample.Sales
   alias PaymongoExample.Services.Source
+  alias PaymongoExampleWeb.Admin.DashboardView
 
   def render(assigns) do
-    PaymongoExampleWeb.Admin.DashboardView.render("_list_of_source.html", assigns)
+    DashboardView.render("_list_of_source.html", assigns)
   end
 
   def handle_event("accept-payment", %{"value" => event_id} = _payload, socket) do

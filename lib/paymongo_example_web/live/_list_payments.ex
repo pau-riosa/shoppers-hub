@@ -3,8 +3,9 @@ defmodule PaymongoExampleWeb.ListPaymentsLive do
   Home Live index
   """
   use Phoenix.LiveComponent, layout: {PaymongoExampleWeb.LayoutView, "live.html"}
+  alias PaymongoExampleWeb.Admin.DashboardView
 
   def render(assigns) do
-    PaymongoExampleWeb.Admin.DashboardView.render("_list_of_payments.html", assigns)
+    DashboardView.render("_list_of_payments.html", assigns)
   end
 end
