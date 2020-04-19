@@ -33,6 +33,7 @@ defmodule PaymongoExampleWeb.WebhookControllerTest do
       "type" => "event"
     }
   }
+
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
   end
