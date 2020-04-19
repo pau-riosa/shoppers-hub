@@ -40,7 +40,7 @@ defmodule PaymongoExampleWeb.WebhookControllerTest do
   describe "webhook" do
     test "webhook received valid data", %{conn: conn} do
       conn = post(conn, Routes.webhook_path(conn, :webhooks), @paymongo_event_attrs)
-      assert %{"id" => event_id} = json_response(conn, 201)["data"]
+      assert %{"data" => data} = json_response(conn, 201)["data"]
     end
   end
 end

@@ -19,9 +19,14 @@ defmodule PaymongoExampleWeb.Admin.DashboardLive do
     {:noreply, fetch(socket)}
   end
 
+  def handle_info({Sales, [:webhook | _], _}, socket) do
+    {:noreply, fetch(socket)}
+  end
+
   defp fetch(socket) do
     assign(socket,
-      list_of_transactions: list_of_transactions()
+      list_of_transactions: list_of_transactions(),
+      source_payments: list_of_source()
     )
   end
 
@@ -32,6 +37,12 @@ defmodule PaymongoExampleWeb.Admin.DashboardLive do
     else
       {:error, errors} ->
         errors
+    end
+  end
+
+  defp list_of_source do
+    with data <- PaymongoExample.list_webhooks() do
+      data
     end
   end
 

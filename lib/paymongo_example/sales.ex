@@ -6,7 +6,7 @@ defmodule PaymongoExample.Sales do
   import Ecto.Query, warn: false
   alias PaymongoExample.Repo
 
-  alias PaymongoExample.Sales.Item
+  alias PaymongoExample.Sales.{Item, Webhook}
 
   @doc """
   Returns the list of items.
@@ -19,6 +19,10 @@ defmodule PaymongoExample.Sales do
   """
   def list_items do
     Repo.all(Item)
+  end
+
+  def list_webhooks do
+    Repo.all(Webhook)
   end
 
   @doc """
@@ -55,6 +59,13 @@ defmodule PaymongoExample.Sales do
     |> Item.changeset(attrs)
     |> Repo.insert()
     |> broadcast_change([:item, :created])
+  end
+
+  def create_webhook(attrs \\ %{}) do
+    %Webhook{}
+    |> change_webhook(attrs)
+    |> Repo.insert()
+    |> broadcast_change([:webhook, :created])
   end
 
   @doc """
@@ -105,6 +116,10 @@ defmodule PaymongoExample.Sales do
   """
   def change_item(%Item{} = item, params \\ %{}) do
     Item.changeset(item, params)
+  end
+
+  def change_webhook(%Webhook{} = webhook, params \\ %{}) do
+    Webhook.changeset(webhook, params)
   end
 
   @topic inspect(__MODULE__)
