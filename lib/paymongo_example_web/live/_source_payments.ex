@@ -21,10 +21,10 @@ defmodule PaymongoExampleWeb.SourcePaymentLive do
          |> put_flash(:notice, "payment accepted successfully.")
          |> redirect(to: "/admin")}
 
-      {:errors, errors} ->
+      {:error, errors} ->
         {:noreply,
          socket
-         |> put_flash(:error, "#{errors}")
+         |> put_flash(:errors, "#{errors}")
          |> redirect(to: "/admin")}
     end
   end

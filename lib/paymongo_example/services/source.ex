@@ -36,8 +36,8 @@ defmodule PaymongoExample.Services.Source do
          %{"data" => data} <- PaymongoElixir.post(:create_payment_source, params) do
       {:ok, data}
     else
-      {:errors, errors} ->
-        {:errors, parse_paymongo_errors(errors)}
+      {:error, errors} ->
+        {:error, parse_paymongo_errors(errors)}
     end
   end
 
