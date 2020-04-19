@@ -18,6 +18,10 @@ config :paymongo_example, PaymongoExampleWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :paymongo_elixir,
+  client_key: System.get_env("PAYMONGO_CLIENT_KEY"),
+  client_secret: System.get_env("PAYMONGO_CLIENT_KEY")
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
