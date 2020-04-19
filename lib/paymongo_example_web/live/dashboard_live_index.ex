@@ -2,7 +2,7 @@ defmodule PaymongoExampleWeb.Admin.DashboardLive do
   @moduledoc """
   Home Live index
   """
-  use Phoenix.LiveView
+  use Phoenix.LiveView, layout: {PaymongoExampleWeb.LayoutView, "admin-live.html"}
   alias PaymongoExample.Sales
   alias PaymongoExampleWeb.Admin.DashboardView
 

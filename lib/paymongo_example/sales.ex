@@ -41,6 +41,7 @@ defmodule PaymongoExample.Sales do
   """
   def get_item!(id), do: Repo.get!(Item, id)
   def get_item_by!(params), do: Repo.get_by!(Item, slug: params)
+  def get_webhook_by_event_id!(event_id), do: Repo.get_by!(Webhook, event_id: event_id)
 
   @doc """
   Creates a item.

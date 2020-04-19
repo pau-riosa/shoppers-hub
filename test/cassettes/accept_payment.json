@@ -1,0 +1,34 @@
+[
+  {
+    "request": {
+      "body": "{\"data\":{\"attributes\":{\"amount\":10000,\"currency\":\"PHP\",\"source\":{\"id\":\"src_CRYs2xtap6C1gVicEsy86bNp\",\"type\":\"source\"}}}}",
+      "headers": {
+        "accept": "application/json",
+        "content-type": "application/json",
+        "authorization": "Basic c2tfdGVzdF85MjV6NGpEUlUxU0FMOGdMemdkV1VXM2U6"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.paymongo.com/v1/payments"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"data\":{\"id\":\"pay_YuXAcp4m7MJdqqv7zcGjR1u2\",\"type\":\"payment\",\"attributes\":{\"access_url\":null,\"amount\":10000,\"billing\":null,\"currency\":\"PHP\",\"description\":null,\"external_reference_number\":null,\"fee\":290,\"livemode\":false,\"net_amount\":9710,\"payout\":null,\"source\":{\"id\":\"src_CRYs2xtap6C1gVicEsy86bNp\",\"type\":\"gcash\"},\"statement_descriptor\":null,\"status\":\"paid\",\"created_at\":1587279490,\"paid_at\":1587279490,\"updated_at\":1587279490}}}",
+      "headers": {
+        "Date": "Sun, 19 Apr 2020 06:58:10 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "nginx",
+        "Vary": "Accept-Encoding",
+        "ETag": "W/\"aed3aa5aeafd1ae8be9b196ceadd724d\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "d8281e4a-bfd3-430f-91ff-e110bf7078f1",
+        "X-Runtime": "0.031078"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

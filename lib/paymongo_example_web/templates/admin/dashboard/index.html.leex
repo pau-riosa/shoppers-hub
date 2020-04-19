@@ -18,7 +18,7 @@
     </div>
     
     <div class="grid xl:grid-cols-2 xl:gap-2 sm:grid-cols-1 sm:gap-1">
-      <%= live_component @socket, PaymongoExampleWeb.SourcePaymentLive, source_payments: @source_payments %> 
+      <%= live_component @socket, PaymongoExampleWeb.SourcePaymentLive, source_payments: @source_payments, id: "source_"<>Ecto.UUID.generate() %> 
       <%= live_component @socket, PaymongoExampleWeb.ListPaymentsLive, list_of_transactions: @list_of_transactions %>  
     </div> 
   </div> 

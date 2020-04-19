@@ -30,7 +30,7 @@
             <%= source.event_id %> 
           </div>
           <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
-            <%= source.data["data"]["attributes"]["data"]["attributes"]["amount"] %> 
+            <%= source.data["data"]["attributes"]["data"]["attributes"]["amount"] / 100 %> 
           </div>
           <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
             <%= source.data["data"]["attributes"]["data"]["attributes"]["status"] %> 
@@ -39,7 +39,7 @@
             <%= source.data["data"]["attributes"]["data"]["attributes"]["type"] %> 
           </div>
           <div class="table-cell bg-gray-200 text-gray-700 px-4 py-4 text-sm">
-            <button class="btn btn-green">
+            <button class="btn btn-green" phx-click="accept-payment" phx-target="<%= @myself %>" value="<%= source.event_id %>">
               <i class="fas fa-money-bill"></i>
               Accept Payment
             </button> 
