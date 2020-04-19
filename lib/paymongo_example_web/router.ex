@@ -13,6 +13,10 @@ defmodule PaymongoExampleWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :app do
+    plug(:put_layout, {PaymongoExampleWeb.LayoutView, :app})
+  end
+
   pipeline :admin do
     plug(:put_layout, {PaymongoExampleWeb.LayoutView, :admin})
   end
@@ -26,7 +30,12 @@ defmodule PaymongoExampleWeb.Router do
 
     live "/", HomeLive.Index, as: :home_index
     live "/:slug/show", HomeLive.Show, as: :home_show
-    # live "/items", ItemLive.Index, as: :item_index
+  end
+
+  scope "/", PaymongoExampleWeb do
+    pipe_through [:browser, :root, :app]
+    get "/:payment_type/success", RedirectController, :success
+    get "/:payment_type/failed", RedirectController, :failed
   end
 
   scope "/admin", PaymongoExampleWeb.Admin do

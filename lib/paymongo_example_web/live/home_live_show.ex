@@ -6,6 +6,7 @@ defmodule PaymongoExampleWeb.HomeLive.Show do
 
   alias PaymongoExample.Sales, as: Sales
   alias PaymongoExample.Services.Card, as: Card
+  alias PaymongoExample.Services.Source, as: Source
 
   def render(assigns) do
     PaymongoExampleWeb.HomeView.render("show.html", assigns)
@@ -60,6 +61,23 @@ defmodule PaymongoExampleWeb.HomeLive.Show do
          socket
          |> put_flash(:notice, "successfully submitted.")
          |> redirect(to: Routes.home_index_path(socket, PaymongoExampleWeb.HomeLive.Index))}
+    end
+  end
+
+  def handle_event("save", %{"ewallet" => params} = _payload, socket) do
+    case Source.create_source(params) do
+      {:error, errors} ->
+        send(self(), "modal-close")
+
+        {:noreply,
+         socket
+         |> put_flash(:error, errors)}
+
+      {:ok, data} ->
+        {:noreply,
+         socket
+         |> put_flash(:notice, "successfully submitted.")
+         |> redirect(external: data["attributes"]["redirect"]["checkout_url"])}
     end
   end
 

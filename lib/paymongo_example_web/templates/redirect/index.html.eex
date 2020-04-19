@@ -1,0 +1,1 @@
+<%= @message %><a href="/" class="text-blue-500">Click this link to be redirected.</a>

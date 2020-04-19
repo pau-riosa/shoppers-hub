@@ -33,12 +33,17 @@
       </div>
 
       <!--Footer-->
-      <div class="flex justify-end pt-2">
-        <button class="btn btn-gray">Cancel</button> 
-        <button class="btn btn-blue">
-          <i class="fas fa-shopping-cart"></i>
-          Pay
-        </button> 
+      <div class="flex justify-end pt-2 md:flex-row sm:flex-row">
+        <%= form_for :ewallet, "#", [phx_submit: :save], fn f -> %>
+          <%= hidden_input f, :description, value: @item.name %>
+          <%= hidden_input f, :amount, value: @total %>
+          <%= hidden_input f, :payment_type, value: @payment_type %>
+          <button class="btn btn-gray">Cancel</button> 
+          <button class="btn btn-blue" type="submit">
+            <i class="fas fa-shopping-cart"></i>
+            Pay
+          </button> 
+        <% end %>
       </div>
 
     </div>
