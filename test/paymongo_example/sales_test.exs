@@ -35,6 +35,7 @@ defmodule PaymongoExample.SalesTest do
     end
 
     test "get_item!/1 returns the item with given id" do
+      #sample
       item = item_fixture()
       assert Sales.get_item!(item.id) == item
     end
